@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Dashboard Admin - MENZOJI</title>
+    <!--Privacy Scripts -->
+    <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>--
+    <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>>
+    <!--Header Script -->
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+</head>
+<body>
+    <!-- Modal d'authentification -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-content">
+            <div class="auth-header">
+                <h2>🔐 Connexion Admin</h2>
+                <p>Accédez au panneau d'administration</p>
+            </div>
+            
+            <form id="login-form" class="auth-form">
+                <div class="form-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn">Se connecter</button>
+                </div>
+            </form>
+            
+           
+        </div>
+    </div>
+
+    <!-- Dashboard principal -->
+    <div id="dashboard-wrapper" class="dashboard-wrapper" style="display: none;">
+        <div class="dashboard-container">
+
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <h2>📊 Dashboard</h2>
+                <nav class="admin-menu">
+                    <a href="#overview" class="active">📈 Vue d'ensemble</a>
+                    <a href="#posts">📝 Gestion des posts</a>
+                    <a href="#add-post">➕ Ajouter un post</a>
+                    <a href="#stats">📊 Statistiques</a>
+                    <a href="#" id="logout">🚪 Déconnexion</a>
+                </nav>
+            </div>
+
+            <!-- Contenu principal -->
+            <div class="main-content">
+                <!-- Section Vue d'ensemble -->
+                <div id="overview" class="content-section active">
+                    <div class="section-header">
+                        <h1>📈 Vue d'ensemble</h1>
+                        <p>Bienvenue dans votre panneau d'administration</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>📝 Total Posts</h3>
+                            <div class="stat-number" id="total-posts">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>🔥 Posts Populaires</h3>
+                            <div class="stat-number" id="popular-posts">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>👁️ Total Vues</h3>
+                            <div class="stat-number" id="total-views">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>📊 Moyenne Vues</h3>
+                            <div class="stat-number" id="avg-views">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section Gestion des posts -->
+                <div id="posts" class="content-section">
+                    <div class="section-header">
+                        <h1>📝 Gestion des posts</h1>
+                        <p>Modifiez ou supprimez vos articles existants</p>
+                    </div>
+                    
+                    <div class="posts-grid" id="posts-grid">
+                        <!-- Posts générés par JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Section Ajouter un post -->
+                <div id="add-post" class="content-section">
+                    <div class="section-header">
+                        <h1>➕ Ajouter un post</h1>
+                        <p>Créez un nouvel article pour votre blog</p>
+                    </div>
+                    
+                    <form id="add-post-form" class="post-form">
+                        <div class="form-group">
+                            <label for="title">Titre du post</label>
+                            <input type="text" id="title" name="title" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Catégorie</label>
+                            <select id="category" name="category" required>
+                                <option value="">Sélectionnez une catégorie</option>
+                                <option value="Action">Action</option>
+                                <option value="Comédie">Comédie</option>
+                                <option value="Drame">Drame</option>
+                                <option value="Horreur">Horreur</option>
+                                <option value="Science-Fiction">Science-Fiction</option>
+                                <option value="Thriller">Thriller</option>
+                                <option value="Romance">Romance</option>
+                                <option value="Documentaire">Documentaire</option>
+                                <option value="Animation">Animation</option>
+                                <option value="Aventure">Aventure</option>
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Mystère">Mystère</option>
+                                <option value="Guerre">Guerre</option>
+                                <option value="Western">Western</option>
+                                <option value="Musical">Musical</option>
+                                <option value="Biographie">Biographie</option>
+                                <option value="Histoire">Histoire</option>
+                                <option value="Sport">Sport</option>
+                                <option value="Famille">Famille</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="imageUrl">URL de l'image (optionnel)</label>
+                            <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/image.jpg">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="content">Contenu</label>
+                            <textarea id="content" name="content" rows="10" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="excerpt">Extrait (optionnel)</label>
+                            <textarea id="excerpt" name="excerpt" rows="3" placeholder="Résumé court de l'article..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="popular">Post populaire</label>
+                            <select id="popular" name="popular">
+                                <option value="false">Non</option>
+                                <option value="true">Oui</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn">Ajouter le post</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Section Statistiques -->
+                <div id="stats" class="content-section">
+                    <div class="section-header">
+                        <h1>📊 Statistiques détaillées</h1>
+                        <p>Analysez les performances de votre blog</p>
+                    </div>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>📝 Total Posts</h3>
+                            <div class="stat-number" id="stats-total-posts">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>🔥 Posts Populaires</h3>
+                            <div class="stat-number" id="stats-popular-posts">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>👁️ Total Vues</h3>
+                            <div class="stat-number" id="stats-total-views">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <h3>📊 Moyenne Vues</h3>
+                            <div class="stat-number" id="stats-avg-views">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'édition -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>✏️ Modifier le post</h2>
+            
+            <form id="edit-post-form" class="post-form">
+                <div class="form-group">
+                    <label for="edit-title">Titre du post</label>
+                    <input type="text" id="edit-title" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-category">Catégorie</label>
+                    <select id="edit-category" name="category" required>
+                        <option value="">Sélectionnez une catégorie</option>
+                        <option value="Action">Action</option>
+                        <option value="Comédie">Comédie</option>
+                        <option value="Drame">Drame</option>
+                        <option value="Horreur">Horreur</option>
+                        <option value="Science-Fiction">Science-Fiction</option>
+                        <option value="Thriller">Thriller</option>
+                        <option value="Romance">Romance</option>
+                        <option value="Documentaire">Documentaire</option>
+                        <option value="Animation">Animation</option>
+                        <option value="Aventure">Aventure</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Mystère">Mystère</option>
+                        <option value="Guerre">Guerre</option>
+                        <option value="Western">Western</option>
+                        <option value="Musical">Musical</option>
+                        <option value="Biographie">Biographie</option>
+                        <option value="Histoire">Histoire</option>
+                        <option value="Sport">Sport</option>
+                        <option value="Famille">Famille</option>
+                        <option value="Autre">Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-imageUrl">URL de l'image (optionnel)</label>
+                    <input type="url" id="edit-imageUrl" name="imageUrl" placeholder="https://example.com/image.jpg">
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-content">Contenu</label>
+                    <textarea id="edit-content" name="content" rows="10" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-excerpt">Extrait (optionnel)</label>
+                    <textarea id="edit-excerpt" name="excerpt" rows="3" placeholder="Résumé court de l'article..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-popular">Post populaire</label>
+                    <select id="edit-popular" name="popular">
+                        <option value="false">Non</option>
+                        <option value="true">Oui</option>
+                    </select>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="btn">Modifier le post</button>
+                    <button type="button" id="cancel-edit" class="btn btn-secondary">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html> 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="article.css">
+    <title>Article - MENZOJI</title>
+    <!--Privacy Scripts -->
+    <script src="https://cmp.gatekeeperconsent.com/min.js" data-cfasync="false"></script>
+    <script src="https://the.gatekeeperconsent.com/cmp.min.js" data-cfasync="false"></script>
+    <!--Header Script -->
+    <script async src="//www.ezojs.com/ezoic/sa.min.js"></script>
+    <script>
+        window.ezstandalone = window.ezstandalone || {};
+        ezstandalone.cmd = ezstandalone.cmd || [];
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"> MENZOJI</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <input class="btn" type="button" value="Subscribe" id="sub">
+        </div>
+        <div class="banner">
+            <div class="content">
+                <p>Article <span>Detail</span>: <a href="#" id="article-title">Chargement...</a> </p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="article-container">
+            <div class="article-content">
+                <div class="article-header">
+                    <div class="article-meta">
+                        <span class="category" id="article-category">Catégorie</span>
+                        <span class="date" id="article-date">Date</span>
+                        <span class="views" id="article-views">0 vue</span>
+                    </div>
+                    <h1 id="article-title-main">Titre de l'article</h1>
+                </div>
+                
+                <div class="article-image">
+                    <img id="article-image" src="src/IMG_2581.png" alt="Article image">
+                </div>
+                
+                <div class="article-text">
+                    <p id="article-content">Contenu de l'article...</p>
+                </div>
+                
+                <div class="article-actions">
+                    <a href="index.html" class="btn btn-secondary">← Retour à l'accueil</a>
+                    <button class="btn" onclick="window.print()">Imprimer l'article</button>
+                </div>
+            </div>
+            
+            <div class="article-sidebar">
+                <div class="sidebar-section">
+                    <h3>Articles similaires</h3>
+                    <div id="related-posts">
+                        <!-- Articles similaires générés par JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Partager</h3>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" onclick="shareOnFacebook()">Facebook</button>
+                        <button class="share-btn twitter" onclick="shareOnTwitter()">Twitter</button>
+                        <button class="share-btn linkedin" onclick="shareOnLinkedIn()">LinkedIn</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="article.js"></script>
+</body>
+</html> 
